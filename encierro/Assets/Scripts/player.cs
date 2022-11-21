@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class player : MonoBehaviour
 {
-
     public Rigidbody2D rb;
+    
     //public GameObject text;
     [Header("Player Jumping")]
     public float jumpForce = 0;
@@ -18,6 +18,7 @@ public class player : MonoBehaviour
 
     void Start()
     {
+        EnablePlayerMovement();
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -38,8 +39,37 @@ public class player : MonoBehaviour
         //}
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+           
         }
 
     }
+
+    // add this code to player controller to disable movement when gameoover screen active
+
+    private void OnEnable()
+    {
+        Collision.OnPlayerDeath += DisablePlayerMovement;
+    }
+
+    private void OnDisable()
+    {
+        Collision.OnPlayerDeath -= DisablePlayerMovement;
+    }
+
+    private void DisablePlayerMovement()
+    {
+        //animator.enabled = false;
+         rb.bodyType = RigidbodyType2D.Static;
+    }
+
+    //call in start
+    private void EnablePlayerMovement()
+    {
+        //animator.enabled = true;
+         rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+
+
+
 }
