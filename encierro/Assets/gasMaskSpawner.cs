@@ -16,11 +16,6 @@ public class gasMaskSpawner : MonoBehaviour
     public Transform gasMaskSpawnPos;
     public Transform gasMaskSpawnPos2;
     public float randomPickSpawn;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -35,9 +30,7 @@ public class gasMaskSpawner : MonoBehaviour
             spawnNow = false;
             StartCoroutine(spawnMasks());
         }
-      
     }
-
 
 
     IEnumerator spawnMasks()
