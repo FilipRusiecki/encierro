@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab0037eb2076ff43be346c9acf69f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1198938763}
   jumpForce: 7
   jumpCount: 0
   allowedJumps: 1
