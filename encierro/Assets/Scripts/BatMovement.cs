@@ -42,7 +42,7 @@ public class BatMovement : MonoBehaviour
                 transform.position = centre + offset;
         }
      
-
+        // added spawn control this position can change or the condition will change once the radar or echo locationis done 
         if (transform.position.x < bounds - posXOffset)
         {
             degrees = 45.0f;
