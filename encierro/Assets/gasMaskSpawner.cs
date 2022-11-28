@@ -35,6 +35,7 @@ public class gasMaskSpawner : MonoBehaviour
             spawnNow = false;
             StartCoroutine(spawnMasks());
         }
+      
     }
 
 
