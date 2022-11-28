@@ -10,8 +10,6 @@ public class Flicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myLight = GameObject.FindWithTag("light");
-
     }
 
     // Update is called once per frame
