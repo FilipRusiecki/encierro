@@ -262,6 +262,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "ie.setu.lighting": {
+      "version": "https://github.com/SeanWhelan117/SPW_LightingPackage.git?path=/SPWLighting/Packages/ie.setu.lighting#v0.3.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3da46401793525cef27056558a80d63546d079b6"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

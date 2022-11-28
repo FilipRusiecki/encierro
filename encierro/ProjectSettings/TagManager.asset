@@ -1,20 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!78 &1
 TagManager:
   serializedVersion: 2
   tags:
   - Ground
   - GasMask
+  - Enemy
+  - light
+  - lightFixture
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Background
+  - Ground
   - 
   - 
   - 
@@ -42,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3334965825
+    locked: 0
+  - name: Ground
+    uniqueID: 4056475455
+    locked: 0
+  - name: Lights
+    uniqueID: 3287840601
+    locked: 0
+  - name: PlayerAndObstacles
+    uniqueID: 496621163
     locked: 0
