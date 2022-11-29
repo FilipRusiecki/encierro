@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Bat
+  - echoLocation
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bat
+    uniqueID: 3565665077
+    locked: 0
+  - name: echoLocation
+    uniqueID: 2747543265
     locked: 0
