@@ -11,9 +11,9 @@ public class echoLocationMovement : MonoBehaviour
 
     private void Start()
     {
-        hitPlayer = false;
+        bat = GameObject.FindGameObjectWithTag("Bat");
     }
-  
+
     private void FixedUpdate()
     {
         transform.position += Vector3.left * (speed+1.2f) * Time.deltaTime;
@@ -28,8 +28,11 @@ public class echoLocationMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            hitPlayer = true;
-            transform.position = new Vector3(bat.transform.position.x, bat.transform.position.y, bat.transform.position.z);
+            //hitPlayer = true;
+            bat.GetComponent<BatMovement>().stateChecker(true);
+          
+           //transform.position = new Vector3(bat.transform.position.x, bat.transform.position.y, bat.transform.position.z);
+           Destroy(gameObject);
            
           
         }

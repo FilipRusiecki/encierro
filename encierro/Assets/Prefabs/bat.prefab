@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6064717101253933372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.92, y: 3.29, z: 0}
+  m_LocalPosition: {x: 5, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,4 +139,3 @@ MonoBehaviour:
   speed: 2
   bounds: 0
   echo: {fileID: 3585874276640529558, guid: e3fe832fca9249f47bf502ed20aa12c0, type: 3}
-  echoSript: {fileID: 3585874276640529559, guid: e3fe832fca9249f47bf502ed20aa12c0, type: 3}
