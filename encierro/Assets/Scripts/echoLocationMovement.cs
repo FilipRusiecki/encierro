@@ -32,7 +32,7 @@ public class echoLocationMovement : MonoBehaviour
             bat.GetComponent<BatMovement>().stateChecker(true);
           
            //transform.position = new Vector3(bat.transform.position.x, bat.transform.position.y, bat.transform.position.z);
-           Destroy(gameObject);
+         //  Destroy(gameObject);
            
           
         }

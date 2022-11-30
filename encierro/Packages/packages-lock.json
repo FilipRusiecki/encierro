@@ -262,6 +262,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "ie.setu.collisioncomponent": {
+      "version": "https://github.com/DonalHowe/CollisionPackage.git?path=/CollisionComponent/Packages/ie.setu.collisioncomponent#v0.1.4",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "99a630b860e792960c77db9d5e1df2705a331665"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

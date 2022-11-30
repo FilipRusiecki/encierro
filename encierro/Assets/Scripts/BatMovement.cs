@@ -34,7 +34,7 @@ public class BatMovement : MonoBehaviour
     }
     void swoopingMovement()
     {
-        Debug.Log(transform.position + gameObject.name);
+      
         transform.position += Vector3.left * speed * Time.deltaTime;
        
 
