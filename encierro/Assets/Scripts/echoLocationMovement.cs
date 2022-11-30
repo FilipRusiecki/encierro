@@ -32,8 +32,8 @@ public class echoLocationMovement : MonoBehaviour
             bat.GetComponent<BatMovement>().stateChecker(true);
           
            //transform.position = new Vector3(bat.transform.position.x, bat.transform.position.y, bat.transform.position.z);
-         //  Destroy(gameObject);
-           
+           Destroy(gameObject);
+           // added collision for the bat and the player but need to change the state based off of that 
           
         }
     }
