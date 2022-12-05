@@ -3,26 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Enemy
-<<<<<<< HEAD
-  - Bat
-  - echoLocation
-=======
-  - light
-  - lightFixture
-  - GasMask
->>>>>>> 2099cc024da55a64fbce7e3fa472d79681c6e64c
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Background
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
@@ -50,27 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-<<<<<<< HEAD
-  - name: Bat
-    uniqueID: 3565665077
-    locked: 0
-  - name: echoLocation
-    uniqueID: 2747543265
-=======
-  - name: Background
-    uniqueID: 3334965825
-    locked: 0
-  - name: Ground
-    uniqueID: 4056475455
-    locked: 0
-  - name: Lights
-    uniqueID: 3287840601
-    locked: 0
-  - name: PlayerAndObstacles
-    uniqueID: 496621163
-    locked: 0
-  - name: gasmask
-    uniqueID: 27046387
->>>>>>> 2099cc024da55a64fbce7e3fa472d79681c6e64c
     locked: 0

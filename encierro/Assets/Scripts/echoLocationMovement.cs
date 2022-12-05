@@ -30,7 +30,7 @@ public class echoLocationMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            //hitPlayer = true;
+            
             bat.GetComponent<BatMovement>().stateChecker(true);
           
            //transform.position = new Vector3(bat.transform.position.x, bat.transform.position.y, bat.transform.position.z);
