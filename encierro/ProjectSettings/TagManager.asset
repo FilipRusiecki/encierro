@@ -9,6 +9,11 @@ TagManager:
   - light
   - lightFixture
   - GasMask
+  - Torch
+  - TorchPickup
+  - echoLocation
+  - Bat
+  - Battery Pickup
   layers:
   - Default
   - TransparentFX
@@ -18,8 +23,8 @@ TagManager:
   - UI
   - Background
   - Ground
-  - 
-  - 
+  - Pickup
+  - Obstacle
   - 
   - 
   - 

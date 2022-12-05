@@ -13,8 +13,12 @@ public class player : MonoBehaviour
     public int jumpCount = 0;
     public int allowedJumps = 0;
     public bool isGrounded = false;
+    public GameObject gameManager;
+    
     //  public Animator animator;
     int speed = 2;
+
+ 
 
     void Start()
     {
@@ -40,6 +44,21 @@ public class player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
            
+        }
+        if(GetComponent<circleAABB>().isCOlliding==true&&transform.position.x>-2)
+        {
+            pushBack();
+            GetComponent<circleAABB>().isCOlliding = false;
+
+
+        }
+        if(transform.position.x<-2)
+        {
+            GetComponent<pullBackCentre>().enabled=true;
+        }
+        if(transform.position.x>=0)
+        {
+            GetComponent<pullBackCentre>().enabled = false;
         }
 
     }
@@ -67,6 +86,11 @@ public class player : MonoBehaviour
     {
         //animator.enabled = true;
          rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    private void pushBack()
+    {
+        rb.AddForce(Vector2.left * 0.04f, ForceMode2D.Impulse);
     }
 
 
