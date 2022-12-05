@@ -14,6 +14,7 @@ public class player : MonoBehaviour
     public int allowedJumps = 0;
     public bool isGrounded = false;
     public GameObject gameManager;
+   
     
     //  public Animator animator;
     int speed = 2;
@@ -45,14 +46,18 @@ public class player : MonoBehaviour
         {
            
         }
-        if(GetComponent<circleAABB>().isCOlliding==true&&transform.position.x>-2)
+        if(GetComponent<circleAABB>().isCOlliding==true)
         {
             pushBack();
-            GetComponent<circleAABB>().isCOlliding = false;
+            if(transform.position.x<-3)
+            {
+                 GetComponent<circleAABB>().isCOlliding = false;
+            }
+
 
 
         }
-        if(transform.position.x<-2)
+        if(transform.position.x<-4)
         {
             GetComponent<pullBackCentre>().enabled=true;
         }
@@ -90,7 +95,7 @@ public class player : MonoBehaviour
 
     private void pushBack()
     {
-        rb.AddForce(Vector2.left * 0.04f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left * 0.09f, ForceMode2D.Impulse);
     }
 
 
