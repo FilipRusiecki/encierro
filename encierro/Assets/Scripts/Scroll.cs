@@ -5,14 +5,13 @@ using UnityEngine;
 public class Scroll : MonoBehaviour
 {
     public BoxCollider2D collider;
-
-    int speed = 7;
-    float width;
+    [SerializeField]
+    public float speed =0f;
+    float width = 18f;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
-        width = collider.size.x;
     }
 
     // Update is called once per frame
@@ -20,11 +19,18 @@ public class Scroll : MonoBehaviour
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
 
-        if (transform.position.x <= -17.8)
+        if (transform.position.x <= -width)
         {
-            Vector3 resetPos = new Vector3(35.6f, 0, 0);
-
-            transform.position += resetPos;
+            SetPosition(width);
         }
+    }
+
+    public void SetSpeed(float t_speed)
+    {
+        speed = t_speed;
+    }
+    public void SetPosition(float t_position)
+    {
+        transform.position = new Vector3(t_position, transform.position.y, 0f); 
     }
 }

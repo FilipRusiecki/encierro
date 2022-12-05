@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
     Rigidbody2D rb;
-    public int speed;
+    public float speed =0f;
     public int bounds;
 
     private void FixedUpdate()
@@ -16,5 +16,8 @@ public class enemy : MonoBehaviour
             transform.position = new Vector3(13,transform.position.y,transform.position.z);
         }
     }
-   
+    public void SetSpeed(float t_speed)
+    {
+        speed = t_speed;
+    }
 }
