@@ -11,6 +11,7 @@ TagManager:
   - GasMask
   - Torch
   - TorchPickup
+  - Battery Pickup
   layers:
   - Default
   - TransparentFX

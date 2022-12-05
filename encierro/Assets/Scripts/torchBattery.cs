@@ -25,6 +25,11 @@ public class torchBattery : MonoBehaviour
             StartCoroutine(flicker());
             torchLight.SetActive(false);
         }
+
+        if(timePassed < initialBatteryPercent)
+        {
+            torchLight.SetActive(true);
+        }
     }
 
     private IEnumerator flicker()
