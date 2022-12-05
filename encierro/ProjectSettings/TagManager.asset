@@ -12,11 +12,12 @@ TagManager:
   - Torch
   - TorchPickup
   - Battery Pickup
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
   - Background
@@ -45,22 +46,11 @@ TagManager:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 3334965825
-    locked: 0
-  - name: Ground
-    uniqueID: 4056475455
-    locked: 0
-  - name: Lights
-    uniqueID: 3287840601
-    locked: 0
-  - name: PlayerAndObstacles
-    uniqueID: 496621163
-    locked: 0
-  - name: gasmask
-    uniqueID: 27046387
     locked: 0

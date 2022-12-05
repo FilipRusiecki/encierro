@@ -262,12 +262,22 @@
       },
       "url": "https://packages.unity.com"
     },
+
+    "ie.setu.collisioncomponent": {
+      "version": "https://github.com/DonalHowe/CollisionPackage.git?path=/CollisionComponent/Packages/ie.setu.collisioncomponent#v0.1.4",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "99a630b860e792960c77db9d5e1df2705a331665"
+    },
+
     "ie.setu.lighting": {
       "version": "https://github.com/SeanWhelan117/SPW_LightingPackage.git?path=/SPWLighting/Packages/ie.setu.lighting#v0.4.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "43fea624ea34542e9c58ca680ececdf32df47910"
+
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
