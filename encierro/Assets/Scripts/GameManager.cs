@@ -48,17 +48,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         temp++;
-        if (temp >= 60)
+        if (temp >= 6)
         {
             temp = 0;
             IncreaseScore();
             // Increase Spped Every 50 Points
-            if (m_score.GetComponent<Score>().GetScore() % 50 == 0)
+            if (m_score.GetComponent<Score>().GetScore() % 10 == 0)
             {
                 IncreaseLevelSpeed();
             }
             // random event every 500 points
-            if (m_score.GetComponent<Score>().GetScore() % 250 == 0)
+            if (m_score.GetComponent<Score>().GetScore() % 100 == 0)
             {
                 TriggerEvent();
             }

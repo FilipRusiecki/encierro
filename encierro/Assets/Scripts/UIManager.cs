@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("Seans Scene");
+        SceneManager.LoadScene("TestPatrick");
     }
 
     public void Quitgame()
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("Seans Scene");
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnEnable()
