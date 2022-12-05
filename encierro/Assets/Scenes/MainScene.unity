@@ -497,6 +497,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.095622, y: 1.0809112}
   m_EdgeRadius: 0
+--- !u!1 &247570181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 205625612555654587, guid: d2e09773671de5343aca71679aafaa14, type: 3}
+  m_PrefabInstance: {fileID: 806400801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443503708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBatteryPercent: 1000
   timePassed: 0
+  torchLight: {fileID: 247570181}
 --- !u!1001 &1841816331
 PrefabInstance:
   m_ObjectHideFlags: 0

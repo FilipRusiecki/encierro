@@ -6,6 +6,8 @@ public class torchBattery : MonoBehaviour
 {
     public int initialBatteryPercent = 1000;
     public int timePassed = 0;
+    public GameObject torchLight;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,25 @@ public class torchBattery : MonoBehaviour
 
         if(timePassed == initialBatteryPercent)
         {
-            // turn off the torch
+            StartCoroutine(flicker());
+            torchLight.SetActive(false);
         }
+    }
+
+    private IEnumerator flicker()
+    {
+        torchLight.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        torchLight.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        torchLight.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        torchLight.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        torchLight.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        torchLight.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        torchLight.SetActive(false);
     }
 }
