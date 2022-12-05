@@ -13,7 +13,7 @@ public class enemy : MonoBehaviour
         transform.position += Vector3.left * speed * Time.deltaTime;
         if(transform.position.x<bounds)
         {
-            transform.position = new Vector3(8,transform.position.y,transform.position.z);
+            transform.position = new Vector3(13,transform.position.y,transform.position.z);
         }
     }
    

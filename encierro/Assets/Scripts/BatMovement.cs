@@ -43,6 +43,7 @@ public class BatMovement : MonoBehaviour
             
         }
         centre = transform.position;
+<<<<<<< HEAD
        
         timer = 0;
       
@@ -93,11 +94,21 @@ public class BatMovement : MonoBehaviour
     {
         hitPlayerMaybe = t_b;
       
+=======
+>>>>>>> 2099cc024da55a64fbce7e3fa472d79681c6e64c
     }
 
     private void FixedUpdate()
     {
+<<<<<<< HEAD
         if (hitPlayerMaybe == false)
+=======
+
+           transform.position += Vector3.left * speed * Time.deltaTime;
+         
+       
+        if (transform.position.y > -3 && transform.position.y < 8)
+>>>>>>> 2099cc024da55a64fbce7e3fa472d79681c6e64c
         {
             searching();
         }
