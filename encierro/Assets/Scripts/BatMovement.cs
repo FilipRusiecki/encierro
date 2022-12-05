@@ -55,7 +55,7 @@ public class BatMovement : MonoBehaviour
             transform.position += Vector3.left * speed * Time.deltaTime;
 
 
-            if (transform.position.y > 1 && transform.position.y < 8)
+            if (transform.position.y > 0.2 && transform.position.y < 8)
             {
                 transform.position += Vector3.down * speed * Time.deltaTime;
                 degrees += RotateSpeed * Time.deltaTime;
