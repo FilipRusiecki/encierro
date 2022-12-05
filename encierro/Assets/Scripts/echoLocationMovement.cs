@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class echoLocationMovement : MonoBehaviour
 {
-    private float speed = 0.9f;
+    public float speed =0.9f;
+    public float xAxisSpeed = 0.9f;
     public GameObject bat;
     public bool hitPlayer;
 
@@ -16,9 +17,10 @@ public class echoLocationMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += Vector3.left * (speed+1.2f) * Time.deltaTime;
+        transform.position += Vector3.left * (xAxisSpeed ) * Time.deltaTime;
         transform.position += Vector3.down * speed * Time.deltaTime;
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
