@@ -6,7 +6,6 @@ public class gasMaskSpawner : MonoBehaviour
 {
 
     public GameObject gasMask;
-
     public int amountOfGasMaskToSpawn;
     public int amountOfGasMaskToSpawned;
     public float timeBetweenSpawns;

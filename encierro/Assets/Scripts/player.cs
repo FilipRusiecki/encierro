@@ -16,8 +16,6 @@ public class player : MonoBehaviour
     //  public Animator animator;
     int speed = 2;
 
- 
-
     void Start()
     {
         EnablePlayerMovement();
