@@ -14,7 +14,7 @@ public class BatMovement : MonoBehaviour
     public int bounds;
 
     private float startPosX ;
-    private float startPosY =3;
+    private float startPosY =0.5f;
 
     private float degrees=45.0f; 
     private float posXOffset = 8;
@@ -55,7 +55,7 @@ public class BatMovement : MonoBehaviour
             transform.position += Vector3.left * speed * Time.deltaTime;
 
 
-            if (transform.position.y > 0.2 && transform.position.y < 8)
+            if (transform.position.y > -3.0 && transform.position.y < 8)
             {
                 transform.position += Vector3.down * speed * Time.deltaTime;
                 degrees += RotateSpeed * Time.deltaTime;
@@ -74,7 +74,7 @@ public class BatMovement : MonoBehaviour
             transform.position += -Vector3.left * speed * Time.deltaTime;
             
 
-            if (transform.position.y > 0.5 && transform.position.y < 8)
+            if (transform.position.y > -3.0 && transform.position.y < 8)
             {
                 transform.position += Vector3.down * speed * Time.deltaTime;
                 degrees += RotateSpeed * Time.deltaTime;
