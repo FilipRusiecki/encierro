@@ -6,12 +6,28 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
 
-    public GameObject gameOverMenu;
+    public GameObject GameOverMenu;
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void StartLevel()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void Quitgame()
+    {
+        #if UNITY_STANDALONE
+            Application.Quit();
+        #endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -31,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void EnableGameOvermenu()
     {
-        gameOverMenu.SetActive(true);
+        GameOverMenu.SetActive(true);
     }
 
 
