@@ -13,6 +13,11 @@ public class GasMaskPickup : MonoBehaviour
     public bool gasMaskPickedUp = false;
 
     public bool inGas = false;
+
+    public bool torchPickedUp = false;
+    public GameObject torchObject;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("GasMask"))
@@ -34,6 +39,11 @@ public class GasMaskPickup : MonoBehaviour
             inGas = true;
         }
 
+
+        if (collision.CompareTag("TorchPickup"))
+        {
+            torchPickedUp = true;
+        }
     }
 
 
@@ -86,6 +96,15 @@ public class GasMaskPickup : MonoBehaviour
             GasMaskObject.SetActive(false);
             inGas = false;
         }
-    }
 
+        if (torchPickedUp == true)
+        {
+            torchObject.SetActive(true);
+        }
+
+        if (torchPickedUp == false)
+        {
+            torchObject.SetActive(false);
+        }
+    }
 }
