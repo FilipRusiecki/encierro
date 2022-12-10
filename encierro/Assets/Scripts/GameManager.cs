@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,10 +19,14 @@ public class GameManager : MonoBehaviour
     GameObject m_backGroundTwo;
     [SerializeField]
     GameObject m_bat;
+    [SerializeField]
+    public TextMeshProUGUI m_speedIncreaseText;
 
     private int scoreIncrement = 1;
-    private float m_currentSpeed = 2f;
-    private int temp = 0;
+    public float m_currentSpeed = 4f;
+    public float m_rateOfSpeedIncrease = 2.0f;
+    public float m_maxSpeed = 15.0f;
+    bool m_canIncreaseSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -42,27 +47,44 @@ public class GameManager : MonoBehaviour
         m_backGround.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
         m_backGroundTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
         m_obstacle.GetComponent<enemy>().SetSpeed(m_currentSpeed);
+        StartCoroutine(IncreaseScore());
     }
 
     // Update is called once per frame
     void Update()
     {
-        temp++;
-        if (temp >= 6)
+        // Increase Speed Every 50 Points
+        if (m_score.GetComponent<Score>().GetScore() % 100 == 0 && m_score.GetComponent<Score>().GetScore() != 0)
         {
-            temp = 0;
-            IncreaseScore();
-            // Increase Spped Every 50 Points
-            if (m_score.GetComponent<Score>().GetScore() % 10 == 0)
+            if (m_currentSpeed < m_maxSpeed && m_canIncreaseSpeed)
             {
+                m_canIncreaseSpeed = false;
+                Debug.Log("IncreaseSpeed : " + m_currentSpeed);
                 IncreaseLevelSpeed();
-            }
-            // random event every 500 points
-            if (m_score.GetComponent<Score>().GetScore() % 100 == 0)
-            {
-                TriggerEvent();
+                StartCoroutine(displayText());
             }
         }
+        // random event every 500 points
+        if (m_score.GetComponent<Score>().GetScore() % 100 == 0)
+        {
+            TriggerEvent();
+        }
+        
+    }
+    IEnumerator IncreaseScore()
+    {
+        yield return new WaitForSeconds(0.1f);
+        m_canIncreaseSpeed = true;
+        m_score.GetComponent<Score>().SetScore(scoreIncrement);
+        StartCoroutine(IncreaseScore());
+    }
+
+    IEnumerator displayText()
+    {
+        Debug.Log("DisplayText");
+        m_speedIncreaseText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        m_speedIncreaseText.gameObject.SetActive(false);
     }
 
     private void TriggerEvent()
@@ -86,21 +108,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void IncreaseScore()
-    {
-        m_score.GetComponent<Score>().SetScore(scoreIncrement);
-    }
-
     private void IncreaseLevelSpeed()
     {
-        if (m_currentSpeed < 15.0f)
-        {
-            m_currentSpeed += 1f;
-            m_floor.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-            m_floorTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-            m_backGround.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-            m_backGroundTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-            m_obstacle.GetComponent<enemy>().SetSpeed(m_currentSpeed);
-        }
+        m_currentSpeed += m_rateOfSpeedIncrease;
+        Debug.Log("IncreaseSpeed : " + m_currentSpeed);
+        m_floor.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
+        m_floorTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
+        m_backGround.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
+        m_backGroundTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
+        m_obstacle.GetComponent<enemy>().SetSpeed(m_currentSpeed);
     }
 }
