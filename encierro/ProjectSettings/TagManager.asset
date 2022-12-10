@@ -15,6 +15,7 @@ TagManager:
   - Bat
   - Battery Pickup
   - GasField
+  - ChasingEnemy
   layers:
   - Default
   - TransparentFX
