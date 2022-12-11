@@ -196,6 +196,7 @@ MonoBehaviour:
   allowedJumps: 1
   isGrounded: 0
   gameManager: {fileID: 0}
+  bat: {fileID: 1125496980033222871, guid: afd2cc7d01bb15a498b7d3876bc59e2b, type: 3}
 --- !u!61 &8817237947530715871
 BoxCollider2D:
   m_ObjectHideFlags: 0

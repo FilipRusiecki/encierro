@@ -70,7 +70,7 @@ public class BatMovement : MonoBehaviour
             }
 
             // added spawn control this position can change or the condition will change once the radar or echo locationis done 
-            if (transform.position.x < bounds - posXOffset)
+            if (transform.position.x < (bounds-posXOffset) )
             {
                 Destroy(gameObject);
             }

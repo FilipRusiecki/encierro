@@ -11,6 +11,13 @@ public class GasMaskPickup : MonoBehaviour
     public Image gasBar;
     public GameObject bar;
     public bool gasMaskPickedUp = false;
+
+    public bool inGas = false;
+
+    public bool torchPickedUp = false;
+    public GameObject torchObject;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("GasMask"))
@@ -27,6 +34,26 @@ public class GasMaskPickup : MonoBehaviour
             GasMaskObject.SetActive(true);
         }
 
+        if (collision.CompareTag("GasField"))
+        {
+            inGas = true;
+        }
+
+
+        if (collision.CompareTag("TorchPickup"))
+        {
+            torchPickedUp = true;
+        }
+    }
+
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("GasField"))
+        {
+            inGas = false;
+        }
     }
 
     void decrement()
@@ -36,16 +63,48 @@ public class GasMaskPickup : MonoBehaviour
 
     private void Update()
     {
+
+        if (inGas == true)
+        {
+            if (gasMaskPickedUp == false)
+            {
+                Debug.Log("NoGasMask Equipped");
+            }
+        }
+
         if (gasMaskPickedUp == true)
-        { 
-            decrement();
+        {
+            if (inGas == true)
+            {
+                decrement();
+                if (gasBar.fillAmount <= 0.0)
+                {
+                    Debug.Log("outofGasMask");
+                    gasBar.gameObject.SetActive(false);
+                    bar.SetActive(false);
+                    gasMaskPickedUp = false;
+                    GasMaskObject.SetActive(false);
+
+                }
+            }
         }
         if (gasBar.fillAmount <= 0.0)
         {
             gasBar.gameObject.SetActive(false);
             bar.SetActive(false);
             gasMaskPickedUp = false;
+            GasMaskObject.SetActive(false);
+            inGas = false;
+        }
+
+        if (torchPickedUp == true)
+        {
+            torchObject.SetActive(true);
+        }
+
+        if (torchPickedUp == false)
+        {
+            torchObject.SetActive(false);
         }
     }
-
 }
