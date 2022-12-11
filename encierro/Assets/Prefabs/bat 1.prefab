@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1651b1a5f7b30e04cb921d8a8ee0d00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 8
   bounds: 0
   echo: {fileID: 3585874276640529558, guid: e3fe832fca9249f47bf502ed20aa12c0, type: 3}
   enumCounter: 2

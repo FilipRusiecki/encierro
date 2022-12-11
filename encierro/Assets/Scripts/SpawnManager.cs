@@ -103,9 +103,21 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBat()
     {
-        _noOfBats++;
         Vector3 _spawnPosition = new Vector3(Random.Range(10.0f, 12.0f), -3.5f, 0.0f);
         _bat = Instantiate(_batPrefab);
+        if (GetComponent<GameManager>().m_currentSpeed >= 4)
+        {
+            _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+        }
+        if (_spawnTime <= 1.0f)
+        {
+            _spawnPosition = new Vector3(Random.Range(10.0f, 16.0f), -3.5f, 0.0f);
+            _bat = Instantiate(_batPrefab);
+            if (GetComponent<GameManager>().m_currentSpeed >= 4)
+            {
+                _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+            }
+        }
     }
 
     public void DecreaseNoOfBats()
