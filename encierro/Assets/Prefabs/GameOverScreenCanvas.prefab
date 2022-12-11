@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dee5eec28d8d24d82dfe4cb2469ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menu: {fileID: 0}
+  GameOverMenu: {fileID: 0}
 --- !u!1 &2887307092546041992
 GameObject:
   m_ObjectHideFlags: 0

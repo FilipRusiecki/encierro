@@ -5,20 +5,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField]
-    GameObject m_obstacle;
-    [SerializeField]
-    GameObject m_score;
-    [SerializeField]
-    GameObject m_floor;
-    [SerializeField]
-    GameObject m_floorTwo;
-    [SerializeField]
-    GameObject m_backGround;
-    [SerializeField]
-    GameObject m_backGroundTwo;
-    [SerializeField]
-    GameObject m_bat;
+    public GameObject m_score;
+
     [SerializeField]
     public TextMeshProUGUI m_speedIncreaseText;
 
@@ -32,21 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Instantiate Objects
-        m_floor = Instantiate(m_floor);
-        m_floorTwo = Instantiate(m_floor);
-        m_obstacle = Instantiate(m_obstacle);
-        m_backGround = Instantiate(m_backGround);
-        m_backGroundTwo = Instantiate(m_backGround);
-        m_bat = Instantiate(m_bat);
 
-        // Set Parametres
-        m_floorTwo.GetComponent<Scroll>().SetPosition(18.0f);
-        m_backGroundTwo.GetComponent<Scroll>().SetPosition(18.0f);
-        m_floor.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_floorTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_backGround.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_backGroundTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_obstacle.GetComponent<enemy>().SetSpeed(m_currentSpeed);
         StartCoroutine(IncreaseScore());
     }
 
@@ -87,6 +63,11 @@ public class GameManager : MonoBehaviour
         m_speedIncreaseText.gameObject.SetActive(false);
     }
 
+    public ref int GetScore()
+    {
+        return ref m_score.GetComponent<Score>().score;
+    }
+
     private void TriggerEvent()
     {
         int temp_randomNumber = Random.Range(0, 3);
@@ -111,11 +92,5 @@ public class GameManager : MonoBehaviour
     private void IncreaseLevelSpeed()
     {
         m_currentSpeed += m_rateOfSpeedIncrease;
-        Debug.Log("IncreaseSpeed : " + m_currentSpeed);
-        m_floor.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_floorTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_backGround.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_backGroundTwo.GetComponent<Scroll>().SetSpeed(m_currentSpeed);
-        m_obstacle.GetComponent<enemy>().SetSpeed(m_currentSpeed);
     }
 }

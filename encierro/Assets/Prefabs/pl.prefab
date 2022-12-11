@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 8817237947530715856}
   - component: {fileID: 8817237947530715867}
   - component: {fileID: 8817237947530715866}
+  - component: {fileID: -7484558706477888806}
   m_Layer: 3
   m_Name: pl
   m_TagString: Player
@@ -269,6 +270,18 @@ MonoBehaviour:
   CircleCollider: {fileID: 1125496980033222827, guid: afd2cc7d01bb15a498b7d3876bc59e2b, type: 3}
   object1Collider: {fileID: 8817237947530715871}
   isCOlliding: 0
+--- !u!114 &-7484558706477888806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8817237947530715857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7755a72ee2f3344c9b2d10a4881c72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8817237947792302611
 GameObject:
   m_ObjectHideFlags: 0
