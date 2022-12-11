@@ -14,6 +14,11 @@ public class SpawnManager : MonoBehaviour
     GameObject _wallPrefab;
     [SerializeField]
     GameObject _lightPrefab;
+    [SerializeField]
+    GameObject _torchPrefab;
+    [SerializeField]
+    GameObject _player;
+    public List<Transform> _spawnPoints;
 
     private GameObject _obstacle; 
     private GameObject _bat;
@@ -21,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject _floorTwo;
     private GameObject _wallOne;
     private GameObject _wallTwo;
+    private GameObject _torch;
 
     public int _noOfBats = 0;
     public float _spawnTime = 3.0f;
@@ -48,6 +54,23 @@ public class SpawnManager : MonoBehaviour
         _floorTwo.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         _wallOne.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         _wallTwo.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+    }
+
+    public void spawnInTorch()
+    {
+        Debug.Log("Spawning Torch");
+        int randomPickSpawn = Random.Range(0, 2);
+        if (randomPickSpawn == 0)
+        {
+            _torch = Instantiate(_torchPrefab, _spawnPoints[0].transform.position, _spawnPoints[0].transform.rotation);
+            _torch.GetComponent<torchPickup>().playersTorch = _player.gameObject;
+        }
+        else if (randomPickSpawn == 1)
+        {
+            _torch = Instantiate(_torchPrefab, _spawnPoints[1].transform.position, _spawnPoints[1].transform.rotation);
+            _torch.GetComponent<torchPickup>().playersTorch = _player.gameObject;
+
+        }
     }
 
     IEnumerator SpawnRoutine()

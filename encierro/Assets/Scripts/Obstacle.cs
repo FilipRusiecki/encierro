@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour
         float offsetY = transform.localScale.y / 2.0f;
         transform.position = new Vector3(Random.Range(10.0f, 16.0f), -4.0f + offsetY, 1f);
     }
-    private void FixedUpdate()
+    private void Update()
         {
             transform.position += Vector3.left * _speed * Time.deltaTime;
             if (transform.position.x < _bounds)

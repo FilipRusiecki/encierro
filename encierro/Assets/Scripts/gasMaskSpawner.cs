@@ -49,7 +49,7 @@ public class gasMaskSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        randomEventCall = Random.Range(0, 3);
+        randomEventCall = 1;
         if (timerBool == true)
         {
             timerBool = false;

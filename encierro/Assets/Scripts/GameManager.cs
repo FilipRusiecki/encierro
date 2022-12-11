@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    public List<GameObject> gameEvents;
+    public Light2D roomLight;
+    public GameObject[] lights;
+    bool darkEventOn = false;
+    bool turnOffLightsOnce = false;
+    [Header("Positions Off Screen")]
+    public List<Transform> Transforms;
 
     [SerializeField]
     public GameObject m_score;
@@ -22,7 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Instantiate Objects
-
+        
         StartCoroutine(IncreaseScore());
     }
 
@@ -41,17 +49,74 @@ public class GameManager : MonoBehaviour
             }
         }
         // random event every 500 points
-        if (m_score.GetComponent<Score>().GetScore() % 100 == 0)
+
+
+        //dark event
+        if (darkEventOn == true)
         {
-            TriggerEvent();
+;
+
+            if (turnOffLightsOnce == false)
+            {
+                turnOffLightsOnce = true;
+                StartCoroutine(spawnDarkEvent());
+            }
         }
-        
     }
+
+    public void spawnInTorch()
+    {
+        int randomPickSpawn = Random.Range(0, 2);
+        if (randomPickSpawn == 0)
+        {
+            Instantiate(gameEvents[1], Transforms[0].transform.position, Transforms[0].transform.rotation);
+        }
+        else if (randomPickSpawn == 1)
+        {
+            Instantiate(gameEvents[1], Transforms[1].transform.position, Transforms[1].transform.rotation);
+        }
+    }
+
+    IEnumerator spawnDarkEvent()
+    {
+       // Debug.Log("Dark Event is true");
+        GetComponent<SpawnManager>().spawnInTorch();
+        yield return new WaitForSeconds(3.0f);
+
+        //Debug.Log(" calls event 2 in courtine ");
+
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].SetActive(false);
+        }
+        roomLight.color = new Color(0f,0f,0f,255f);
+        yield return new WaitForSeconds(3.0f);
+
+
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].SetActive(true);
+
+        }
+        roomLight.color = Color.white;
+        darkEventOn = false;
+        turnOffLightsOnce = false;
+       // enable.torchPickedUp = false;
+        Debug.Log(" end call event 2 in courtine ");
+
+    }
+
+
     IEnumerator IncreaseScore()
     {
         yield return new WaitForSeconds(0.1f);
         m_canIncreaseSpeed = true;
         m_score.GetComponent<Score>().SetScore(scoreIncrement);
+        if (m_score.GetComponent<Score>().GetScore() % 50 == 0 && m_score.GetComponent<Score>().GetScore() != 0)
+        {
+            Debug.Log("TrigeerEvent");
+            TriggerEvent();
+        }
         StartCoroutine(IncreaseScore());
     }
 
@@ -70,11 +135,12 @@ public class GameManager : MonoBehaviour
 
     private void TriggerEvent()
     {
-        int temp_randomNumber = Random.Range(0, 3);
+        //int temp_randomNumber = Random.Range(0, 3);
+        int temp_randomNumber = 0;
         if (temp_randomNumber == 0)
         {
-            Debug.Log("Train Event");
-            // train event 
+            Debug.Log("Darkness");
+            darkEventOn = true;
         }
         else if (temp_randomNumber == 1)
         {
