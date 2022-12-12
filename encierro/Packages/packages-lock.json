@@ -252,6 +252,15 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.visualeffectgraph": {
+      "version": "12.1.7",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.shadergraph": "12.1.7",
+        "com.unity.render-pipelines.core": "12.1.7"
+      }
+    },
     "com.unity.visualscripting": {
       "version": "1.7.8",
       "depth": 0,
@@ -262,7 +271,6 @@
       },
       "url": "https://packages.unity.com"
     },
-
     "ie.setu.collisioncomponent": {
       "version": "https://github.com/DonalHowe/CollisionPackage.git?path=/CollisionComponent/Packages/ie.setu.collisioncomponent#v0.1.4",
       "depth": 0,
@@ -270,14 +278,19 @@
       "dependencies": {},
       "hash": "99a630b860e792960c77db9d5e1df2705a331665"
     },
-
     "ie.setu.lighting": {
       "version": "https://github.com/SeanWhelan117/SPW_LightingPackage.git?path=/SPWLighting/Packages/ie.setu.lighting#v0.4.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "43fea624ea34542e9c58ca680ececdf32df47910"
-
+    },
+    "ie.setu.visualeffect": {
+      "version": "https://github.com/AdamMcguigan/Visual-Effects-Package.git?path=/Packages/ie.setu.visualeffect#v0.2.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5929ccd0573d05ebd5baf30c84549464f4a63229"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
