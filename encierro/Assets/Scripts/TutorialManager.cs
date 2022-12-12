@@ -10,12 +10,38 @@ public class TutorialManager : MonoBehaviour
     public GameObject m_bat;
     public GameObject m_batTutorialText;
 
+
+    public GameObject m_gasMask;
+    public GameObject m_gasMaskText;
+
+
+    public GameObject m_gasField;
+    public GameObject m_gasFieldText;
+
+
+    public GameObject m_torch;
+    public GameObject m_battery;
+    public GameObject m_darkEventText;
+
+    public GameObject m_chaser
+    public GameObject m_chaserText
+
+
     private bool _pause;
     private bool _jumpTutorial;
     private bool _obstacleTutorialComplete;
 
     private bool _batTutorial;
     private bool _batTutorialComplete;
+
+    private bool _gasTutorial;
+    private bool _gasTutorialComplete;
+
+    private bool _darkTutorial;
+    private bool _darkTutorialComplete;
+
+    private bool _chaseTutorial;
+    private bool _chaseTutorialComplete;
 
 
 
@@ -27,9 +53,22 @@ public class TutorialManager : MonoBehaviour
         _obstacleTutorialComplete = false;
         _batTutorial = false;
         _batTutorialComplete = false;
+
+_gasTutorial = false;
+        _gasTutorialComplete = false;
+_darkTutorial = false;
+        _darkTutorialComplete = false;
+_chasingTutorial = false;
+        _chasingTutorialComplete = false;
+
+
         m_obstacle = Instantiate(m_obstacle);
         m_obstacle.GetComponent<Obstacle>().SetSpeed(4);
         m_bat.SetActive(false);
+        m_gasMask.SetActive(false)
+m_gasField.SetActive(false)
+m_torch.SetActive(false)
+m_battery.SetActive(false)
     }
 
     // Update is called once per frame
@@ -41,13 +80,22 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("Bat");
             StartCoroutine(spawnBat(2.0f));
         }
-        if(_batTutorialComplete == true)
+        if(_batTutorialComplete == true && _gasTutorial == false)
         {
             Debug.Log("Gas Tutorial");
+StartCoroutine(spawnGas(2.0f));
         }
         obstacleTutorial();
         batTutorial();
+        gasTutorial()
     }
+
+    IEnumerator spawnGas(float _waitTime)
+{
+   m_gasMask.SetActive(true)
+m_gasTutorialText.SetActive(true);
+yield return new WaitForSeconds(_waitTime);
+}
 
     IEnumerator spawnBat(float _waitTime)
     {
@@ -70,6 +118,11 @@ public class TutorialManager : MonoBehaviour
             StartCoroutine(spawnBat(0.0f));
         }
     }
+
+   private void gasTutorial()
+{
+
+}
 
     private void batTutorial()
     {
