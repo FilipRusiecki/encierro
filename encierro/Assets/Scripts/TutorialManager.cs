@@ -37,7 +37,7 @@ public class TutorialManager : MonoBehaviour
     public Light2D roofLightTwo;
 
     public GameObject m_chaser;
-    public GameObject m_chaserText;
+    public GameObject m_endText;
 
 
     private bool _gasTutorial;
@@ -53,7 +53,7 @@ public class TutorialManager : MonoBehaviour
 
     // ------------------------------
 
-
+    bool _tutorialFinished;
 
 
 
@@ -86,48 +86,51 @@ public class TutorialManager : MonoBehaviour
         m_battery.SetActive(false);
         m_batteryTwo.SetActive(false);
         roomLight.color = Color.white;
-
+        _tutorialFinished = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        obstacleTutorial();
-        if (_obstacleTutorialComplete == true && _batTutorialComplete == false)
+        if (_tutorialFinished == false)
         {
-            _obstacleTutorialComplete = false;
-            Debug.Log("Bat");
-            StartCoroutine(spawnBat(2.0f));
-        }
-        if (_batTutorialComplete == true && _gasTutorial == false)
-        {
-            _batTutorialComplete = false;
-            Debug.Log("Gas Tutorial");
-            StartCoroutine(spawnGas(2.0f));
-        }
-        if (_darkTutorial == false && m_gasField == null)
-        {
-            _darkTutorial = true;
-            StartCoroutine(spawnTorchAndBatteries(2.0f));
-        }
-        // runs after spawn bat
-        batTutorial();
-        gasTutorial();
-        if (_lightsOnOff == false && _darkTutorial == true)
-        {
-            darkTutorial();
-        }
-        if (_lightsOnOff == true)
-        {
-            Debug.Log("Starttttttttin Again");
-            _lightsOnOff = false;
-            StartCoroutine(turnLightsOff(2.0f));
+            obstacleTutorial();
+            if (_obstacleTutorialComplete == true && _batTutorialComplete == false)
+            {
+                _obstacleTutorialComplete = false;
+                Debug.Log("Bat");
+                StartCoroutine(spawnBat(2.0f));
+            }
+            if (_batTutorialComplete == true && _gasTutorial == false)
+            {
+                _batTutorialComplete = false;
+                Debug.Log("Gas Tutorial");
+                StartCoroutine(spawnGas(2.0f));
+            }
+            if (_darkTutorial == false && m_gasField == null)
+            {
+                _darkTutorial = true;
+                StartCoroutine(spawnTorchAndBatteries(2.0f));
+            }
+            // runs after spawn bat
+            batTutorial();
+            gasTutorial();
+            if (_lightsOnOff == false && _darkTutorial == true && _pause ==false)
+            {
+                darkTutorial();
+            }
+            if (_lightsOnOff == true)
+            {
+                Debug.Log("Starttttttttin Again");
+                _lightsOnOff = false;
+                StartCoroutine(turnLightsOff(2.0f));
+            }
         }
     }
 
     IEnumerator turnLightsOff(float _waitTime)
     {
-        yield return new WaitForSeconds(_waitTime);
+ 
         roomLight.color = Color.black;
         roofLightOne.color = Color.black;
         roofLightTwo.color = Color.black;
@@ -135,12 +138,38 @@ public class TutorialManager : MonoBehaviour
         roomLight.color = Color.white;
         roofLightOne.color = Color.white;
         roofLightTwo.color = Color.white;
-        yield return new WaitForSeconds(_waitTime);
-        roomLight.color = Color.black;
-        roofLightOne.color = Color.black;
-        roofLightTwo.color = Color.black;
         _darkTutorialComplete = true;
+        resetEverything();
         StopCoroutine(turnLightsOff(0.0f));
+    }
+
+    private void resetEverything()
+    {
+        m_endText.SetActive(true);
+        _pause = false;
+        _jumpTutorial = false;
+        _obstacleTutorialComplete = false;
+        _batTutorial = false;
+        _batTutorialComplete = false;
+
+        _gasTutorial = false;
+        _gasTutorialComplete = false;
+        _darkTutorial = false;
+        _darkTutorialComplete = false;
+        _chaseTutorial = false;
+        _chaseTutorialComplete = false;
+        _gasField = false;
+        _lightsOnOff = false;
+
+        m_obstacle = Instantiate(m_obstacle);
+        m_obstacle.GetComponent<Obstacle>().SetSpeed(4);
+        m_bat.SetActive(false);
+        m_gasMask.SetActive(false);
+        m_gasField.SetActive(false);
+        m_torch.SetActive(false);
+        m_battery.SetActive(false);
+        m_batteryTwo.SetActive(false);
+        roomLight.color = Color.white;
     }
 
     private void darkTutorial()
@@ -148,63 +177,23 @@ public class TutorialManager : MonoBehaviour
 
         if (_darkTutorial == true)
         {
-            if (m_torch.transform.position.x < 1.5f)
+            if (m_torch != null)
             {
-                // Debug.Log("Pausing gas mask");
-                //_gasTutorial = true;
-                _pause = true;
+                if (m_torch.transform.position.x <= 1.5f)
+                {
+                    // Debug.Log("Pausing gas mask");
+                    //_gasTutorial = true;
+                    _pause = true;
+                  //  m_torch.GetComponent<torchPickup>().SetSpeed(0.0f);
+                    Debug.Log("Pausing");
+                }
             }
-            if (_pause == true && m_gasMask.transform.position.x <= 1.5F)
-            {
-                // Debug.Log("Pausing Herreeeeee");
-                m_torch.GetComponent<torchPickup>().SetSpeed(0.0f);
-            }
-
-            //if (m_torch != null)
-            //{
-            //    m_torch.SetActive(true);
-            //    m_darkEventText.SetActive(true);
-            //    if (m_torch.transform.position.x < 1.5f)
-            //    {
-            //        // Debug.Log("Pausing gas mask");
-            //        _pause = true;
-            //    }
-            //    if (_pause == true && m_torch.transform.position.x <= 1.5f)
-            //    {
-            //        // Debug.Log("Pausing Herreeeeee");
-            //        m_torch.GetComponent<torchPickup>().SetSpeed(0.0f);
-            //        m_battery.GetComponent<batteriesPickup>().SetSpeed(0.0f);
-            //        m_batteryTwo.GetComponent<batteriesPickup>().SetSpeed(0.0f);
-            //    }
-            //}
-            //if (m_battery != null)
-            //{
-            //    m_battery.SetActive(true);
-            //}
-            //if (m_batteryTwo != null)
-            //{
-            //    m_batteryTwo.SetActive(true);
-            //}
-        }
-    }
-
-    IEnumerator spawnTorchAndBatteries(float _waitTime)
-    {
-
-        if (m_torch != null)
-        {
-            // Debug.Log("Spawn Gas COROUT");
-            m_torch.SetActive(true);
-            m_darkEventText.SetActive(true);
-            yield return new WaitForSeconds(_waitTime);
-
             if (Input.GetKeyDown(KeyCode.Space) && _pause == true && m_torch.transform.position.x <= 1.5f)
             {
-                Debug.Log("Stopping spawnGas()");
                 _pause = false;
                 m_darkEventText.SetActive(false);
                 _darkTutorial = false;
-                m_torch.GetComponent<GasMaskMove>().SetSpeed(4.0f);
+                m_torch.GetComponent<torchPickup>().SetSpeed(4.0f);
                 StopCoroutine(spawnTorchAndBatteries(0.0f));
             }
             else
@@ -214,6 +203,20 @@ public class TutorialManager : MonoBehaviour
                 StartCoroutine(spawnTorchAndBatteries(0.0f));
             }
         }
+    }
+
+    IEnumerator spawnTorchAndBatteries(float _waitTime)
+    {
+
+        if (m_torch != null)
+        {
+            // Debug.Log("Spawn Gas COROUT");
+            m_gasFieldText.SetActive(false);
+            m_torch.SetActive(true);
+            m_darkEventText.SetActive(true);
+            yield return new WaitForSeconds(_waitTime);
+
+        }
         else
         {
             if (_pause == true)
@@ -222,32 +225,13 @@ public class TutorialManager : MonoBehaviour
                 m_darkEventText.SetActive(false);
                 _darkTutorial = false;
 
-                StopCoroutine(spawnGas(0.0f));
+                StopCoroutine(spawnTorchAndBatteries(0.0f));
             }
         }
         //yield return new WaitForSeconds(_waitTime);
 
 
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        Debug.Log("Stopping Dark Stuff()");
-        //        _pause = false;
-        //        m_darkEventText.SetActive(false);
-        //        m_torch.GetComponent<torchPickup>().SetSpeed(4.0f);
-        //        m_battery.GetComponent<batteriesPickup>().SetSpeed(4.0f);
-        //        m_batteryTwo.GetComponent<batteriesPickup>().SetSpeed(4.0f);
-        //        _lightsOnOff = true;
-        //        StopCoroutine(spawnTorchAndBatteries(0.0f));
-        //    }
-        //    else
-        //    {
-        //        StartCoroutine(spawnTorchAndBatteries(0.0f));
-        //    }
 
-        //if (m_torch == null)
-        //{
-        //    StopCoroutine(spawnTorchAndBatteries(0.0f));
-        //}
     }
 
     private void gasTutorial()
