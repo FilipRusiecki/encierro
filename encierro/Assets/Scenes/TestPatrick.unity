@@ -1030,8 +1030,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1923964115500353049, guid: 79562f8b51339fd41a512570054af703, type: 3}
+      propertyPath: m_player
+      value: 
+      objectReference: {fileID: 8817237948323922555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79562f8b51339fd41a512570054af703, type: 3}
+--- !u!1 &1205220291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 379820827024238377, guid: d135995d17514c7468301113c56a1568, type: 3}
+  m_PrefabInstance: {fileID: 4755702507976342667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1267010732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8187863536443297083, guid: 6c11982f57077074490fda06ea8ec240, type: 3}
@@ -1407,7 +1416,7 @@ PrefabInstance:
     - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: _gasMaskPrefab
       value: 
-      objectReference: {fileID: 1843250851419499152, guid: 3f8c308b1f85ac745bb29ec53ab8174d, type: 3}
+      objectReference: {fileID: 1843250851419499152, guid: 5d10995bd09d994459250c8d105d31a4, type: 3}
     - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: _gasFieldPrefab
       value: 
@@ -1474,6 +1483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
+--- !u!1 &1554847253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4297200442842332722, guid: d135995d17514c7468301113c56a1568, type: 3}
+  m_PrefabInstance: {fileID: 4755702507976342667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557178681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3390010522608013981, guid: 20173a825a3985c4290b4b7dcc62376a, type: 3}
@@ -1763,6 +1777,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 379820827024238377, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200442842332720, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1906135780}
+    - target: {fileID: 4297200442842332720, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: gasBar
+      value: 
+      objectReference: {fileID: 1364091652}
+    - target: {fileID: 4297200442842332720, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: playerGasMask
+      value: 
+      objectReference: {fileID: 1205220291}
     - target: {fileID: 4297200443654422256, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_Name
       value: pl
@@ -1823,6 +1853,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6475656990832039675, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: playersGasMask
+      value: 
+      objectReference: {fileID: 1554847253}
     - target: {fileID: 6717743297510245755, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_IsActive
       value: 0
