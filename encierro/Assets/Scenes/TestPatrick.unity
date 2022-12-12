@@ -1789,6 +1789,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 382030332622240639, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200442824955777, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: initialBatteryPercent
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 4297200442824955779, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1808,6 +1816,10 @@ PrefabInstance:
     - target: {fileID: 4297200443654422256, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_Name
       value: pl
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200443654422257, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4297200443654422267, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_Enabled

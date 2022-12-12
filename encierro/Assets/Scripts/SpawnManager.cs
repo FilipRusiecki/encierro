@@ -37,6 +37,8 @@ public class SpawnManager : MonoBehaviour
     private GameObject _gasField;
     private GameObject _battery;
 
+    public bool _torchSpawned = false;
+
 
     public int _noOfBats = 0;
     public float _spawnTime = 4.0f;
@@ -86,7 +88,7 @@ public class SpawnManager : MonoBehaviour
         }
         if (_bat != null)
         {
-            if (GetComponent<GameManager>().m_currentSpeed >= 8)
+            if (GetComponent<GameManager>().m_currentSpeed >= 4)
             {
                 _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed + 4) ;
             }
@@ -96,6 +98,7 @@ public class SpawnManager : MonoBehaviour
     public void spawnInTorch()
     {
         Debug.Log("Spawning Torch");
+        _torchSpawned = true;
         int randomPickSpawn = Random.Range(0, 2);
         if (randomPickSpawn == 0)
         {
@@ -203,7 +206,7 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 _spawnPosition = new Vector3(Random.Range(10.0f, 12.0f), -3.5f, 0.0f);
         _bat = Instantiate(_batPrefab);
-        if (GetComponent<GameManager>().m_currentSpeed >= 8)
+        if (GetComponent<GameManager>().m_currentSpeed >= 4)
         {
             _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed+4);
         }
@@ -211,7 +214,7 @@ public class SpawnManager : MonoBehaviour
         {
             _spawnPosition = new Vector3(Random.Range(10.0f, 16.0f), -3.5f, 0.0f);
             _bat = Instantiate(_batPrefab);
-            if (GetComponent<GameManager>().m_currentSpeed >= 8)
+            if (GetComponent<GameManager>().m_currentSpeed >= 4)
             {
                 _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed + 4);
             }

@@ -57,7 +57,7 @@ public class player : MonoBehaviour
 
 
         }
-        if(transform.position.x<-4)
+        if(transform.position.x<-1)
         {
             GetComponent<pullBackCentre>().enabled=true;
         }

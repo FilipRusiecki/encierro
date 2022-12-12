@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class torchBattery : MonoBehaviour
 {
-    public int initialBatteryPercent = 1000;
+    public int initialBatteryPercent = 400;
     public int timePassed = 0;
     public GameObject torchLight;
 

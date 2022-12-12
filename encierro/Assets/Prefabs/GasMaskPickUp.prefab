@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 496621163
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 364ed5c7adbc21d45bb9401d3417ca38, type: 3}
   m_Color: {r: 0.59036297, g: 0.9811321, b: 0.54147387, a: 1}
   m_FlipX: 0
@@ -102,6 +102,8 @@ MonoBehaviour:
   rb: {fileID: 5571497796569846382}
   scrollSpeed: 0
   _bounds: -8
+  _gameObject: {fileID: 0}
+  playersGasMask: {fileID: 0}
 --- !u!50 &5571497796569846382
 Rigidbody2D:
   serializedVersion: 4
