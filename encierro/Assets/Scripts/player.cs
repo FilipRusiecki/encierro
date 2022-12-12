@@ -14,6 +14,7 @@ public class player : MonoBehaviour
     public int allowedJumps = 0;
     public bool isGrounded = false;
     public GameObject gameManager;
+    public AudioSource audio;
    
     
     //  public Animator animator;
@@ -30,6 +31,7 @@ public class player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
+            audio.Play();
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //animator.SetBool("isGrounded", false);
             jumpCount += 1;
