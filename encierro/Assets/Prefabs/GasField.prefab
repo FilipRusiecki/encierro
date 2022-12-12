@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5851320861227442853}
   - component: {fileID: 5851320861227442854}
   - component: {fileID: 5851320861227442855}
-  - component: {fileID: 5851320861227442848}
   - component: {fileID: 5851320861227442849}
-  m_Layer: 0
+  - component: {fileID: 8809677215356909645}
+  m_Layer: 12
   m_Name: GasField
   m_TagString: GasField
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5851320861227442850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.02, y: 2.88, z: 0}
+  m_LocalPosition: {x: 31.02, y: 10.9, z: 0}
   m_LocalScale: {x: 20, y: 29.8125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,11 +73,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -372162661
-  m_SortingLayer: 6
+  m_SortingLayerID: 496621163
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.78061587, g: 0.9245283, b: 0.78442746, a: 0.41960785}
+  m_Color: {r: 0.003921569, g: 0.90588236, b: 0.02745098, a: 0.41960785}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,20 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5851320861227442848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5851320861227442850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e246921525ba749bf9791d62ddc90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 5851320861227442849}
-  scrollSpeed: 0.05
 --- !u!50 &5851320861227442849
 Rigidbody2D:
   serializedVersion: 4
@@ -147,4 +133,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &8809677215356909645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5851320861227442850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89b17a2f124669449e9958b92c30e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0
+  _bounds: -20

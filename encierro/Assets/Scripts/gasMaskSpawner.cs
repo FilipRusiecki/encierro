@@ -49,7 +49,7 @@ public class gasMaskSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        randomEventCall = 1;
+        randomEventCall = Random.Range(0, 3);
         if (timerBool == true)
         {
             timerBool = false;
@@ -238,7 +238,7 @@ public class gasMaskSpawner : MonoBehaviour
             darkEventOn = false;
         }
         turnOfLightsOnce = false;
-        enable.torchPickedUp = false;
+        //enable.torchPickedUp = false;
         Debug.Log(" end call event 2 in courtine ");
 
     }

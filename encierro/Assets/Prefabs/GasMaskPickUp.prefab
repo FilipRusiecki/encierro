@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6248739383809082850}
   - component: {fileID: 5571497796569846382}
   - component: {fileID: 8200123670079745517}
-  m_Layer: 0
-  m_Name: GasMask
+  m_Layer: 8
+  m_Name: GasMaskPickUp
   m_TagString: GasMask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 129
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 27046387
-  m_SortingLayer: 5
+  m_SortingLayerID: 496621163
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 364ed5c7adbc21d45bb9401d3417ca38, type: 3}
   m_Color: {r: 0.59036297, g: 0.9811321, b: 0.54147387, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5571497796569846382}
-  scrollSpeed: 0.05
+  scrollSpeed: 0
+  _bounds: -8
 --- !u!50 &5571497796569846382
 Rigidbody2D:
   serializedVersion: 4

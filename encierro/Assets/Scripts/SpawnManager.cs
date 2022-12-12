@@ -17,6 +17,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject _torchPrefab;
     [SerializeField]
+    GameObject _gasMaskPrefab;
+    [SerializeField]
+    GameObject _gasFieldPrefab;
+    [SerializeField]
     GameObject _player;
     public List<Transform> _spawnPoints;
 
@@ -27,6 +31,9 @@ public class SpawnManager : MonoBehaviour
     private GameObject _wallOne;
     private GameObject _wallTwo;
     private GameObject _torch;
+    private GameObject _gasMask;
+    private GameObject _gasField;
+
 
     public int _noOfBats = 0;
     public float _spawnTime = 3.0f;
@@ -54,6 +61,26 @@ public class SpawnManager : MonoBehaviour
         _floorTwo.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         _wallOne.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         _wallTwo.GetComponent<Scroll>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        if (_gasField != null)
+        {
+            _gasField.GetComponent<GasFieldMove>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        }
+        if (_gasMask != null)
+        {
+            _gasMask.GetComponent<GasMaskMove>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        }
+        if (_torch != null)
+        {
+            _torch.GetComponent<torchPickup>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        }
+        if (_obstacle != null)
+        {
+            _obstacle.GetComponent<Obstacle>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        }
+        if (_bat != null)
+        {
+            _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+        }
     }
 
     public void spawnInTorch()
@@ -69,8 +96,33 @@ public class SpawnManager : MonoBehaviour
         {
             _torch = Instantiate(_torchPrefab, _spawnPoints[1].transform.position, _spawnPoints[1].transform.rotation);
             _torch.GetComponent<torchPickup>().playersTorch = _player.gameObject;
-
         }
+    }
+
+    public void spawnInGasMask()
+    {
+        Debug.Log("Spawning Gas Mask");
+        int randomPickSpawn = Random.Range(0, 2);
+        if (randomPickSpawn == 0)
+        {
+            _gasMask = Instantiate(_gasMaskPrefab, _spawnPoints[0].transform.position, _spawnPoints[0].transform.rotation);
+            _gasMask.GetComponent<GasMaskMove>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+            _gasMask.GetComponent<GasMaskMove>().playersGasMask = _player.gameObject;
+        }
+        else if (randomPickSpawn == 1)
+        {
+            _gasMask = Instantiate(_gasMaskPrefab, _spawnPoints[1].transform.position, _spawnPoints[1].transform.rotation);
+            _gasMask.GetComponent<GasMaskMove>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+            _gasMask.GetComponent<GasMaskMove>().playersGasMask = _player.gameObject;
+        }
+    }
+
+    public void spawnInGasField()
+    {
+        Debug.Log("Spawning Gas Mask");
+
+        _gasField = Instantiate(_gasFieldPrefab, _spawnPoints[2].transform.position, _spawnPoints[2].transform.rotation);
+        _gasField.GetComponent<GasFieldMove>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
     }
 
     IEnumerator SpawnRoutine()

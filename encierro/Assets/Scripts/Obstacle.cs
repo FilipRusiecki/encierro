@@ -22,9 +22,9 @@ public class Obstacle : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        public void SetSpeed(float t_speed)
-        {
-            _speed = t_speed;
-        }
+    public void SetSpeed(float t_speed)
+    {
+        _speed = t_speed;
+    }
     
 }

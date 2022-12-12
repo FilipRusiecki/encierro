@@ -6,11 +6,21 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    // ________________ Light Event Objects
+
     public List<GameObject> gameEvents;
     public Light2D roomLight;
     public GameObject[] lights;
     bool darkEventOn = false;
+    bool gasEventOn = false;
     bool turnOffLightsOnce = false;
+
+
+    // ________________ Gas Event Objects
+    bool _maskSpawned = false;
+    bool _gasFieldSpawned = false;
+
+
     [Header("Positions Off Screen")]
     public List<Transform> Transforms;
 
@@ -29,8 +39,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Instantiate Objects
-        
         StartCoroutine(IncreaseScore());
     }
 
@@ -43,47 +51,38 @@ public class GameManager : MonoBehaviour
             if (m_currentSpeed < m_maxSpeed && m_canIncreaseSpeed)
             {
                 m_canIncreaseSpeed = false;
-                Debug.Log("IncreaseSpeed : " + m_currentSpeed);
                 IncreaseLevelSpeed();
                 StartCoroutine(displayText());
             }
         }
-        // random event every 500 points
 
-
-        //dark event
         if (darkEventOn == true)
         {
-;
-
             if (turnOffLightsOnce == false)
             {
                 turnOffLightsOnce = true;
                 StartCoroutine(spawnDarkEvent());
             }
         }
-    }
-
-    public void spawnInTorch()
-    {
-        int randomPickSpawn = Random.Range(0, 2);
-        if (randomPickSpawn == 0)
+        if (gasEventOn == true)
         {
-            Instantiate(gameEvents[1], Transforms[0].transform.position, Transforms[0].transform.rotation);
-        }
-        else if (randomPickSpawn == 1)
-        {
-            Instantiate(gameEvents[1], Transforms[1].transform.position, Transforms[1].transform.rotation);
+            if (!_maskSpawned)
+            {
+                _maskSpawned = true;
+                GetComponent<SpawnManager>().spawnInGasMask();
+            }
+            else if (!_gasFieldSpawned)
+            {
+                _gasFieldSpawned = true;
+                StartCoroutine(spawnInGasField());
+            }
         }
     }
 
     IEnumerator spawnDarkEvent()
     {
-       // Debug.Log("Dark Event is true");
         GetComponent<SpawnManager>().spawnInTorch();
         yield return new WaitForSeconds(3.0f);
-
-        //Debug.Log(" calls event 2 in courtine ");
 
         for (int i = 0; i < lights.Length; i++)
         {
@@ -101,11 +100,18 @@ public class GameManager : MonoBehaviour
         roomLight.color = Color.white;
         darkEventOn = false;
         turnOffLightsOnce = false;
-       // enable.torchPickedUp = false;
-        Debug.Log(" end call event 2 in courtine ");
-
     }
 
+
+    IEnumerator spawnInGasField()
+    {
+        yield return new WaitForSeconds(3.0f);
+        GetComponent<SpawnManager>().spawnInGasField();
+        yield return new WaitForSeconds(3.0f);
+        gasEventOn = false;
+        _maskSpawned = false;
+        _gasFieldSpawned = false;
+    }
 
     IEnumerator IncreaseScore()
     {
@@ -114,7 +120,6 @@ public class GameManager : MonoBehaviour
         m_score.GetComponent<Score>().SetScore(scoreIncrement);
         if (m_score.GetComponent<Score>().GetScore() % 50 == 0 && m_score.GetComponent<Score>().GetScore() != 0)
         {
-            Debug.Log("TrigeerEvent");
             TriggerEvent();
         }
         StartCoroutine(IncreaseScore());
@@ -122,7 +127,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator displayText()
     {
-        Debug.Log("DisplayText");
         m_speedIncreaseText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         m_speedIncreaseText.gameObject.SetActive(false);
@@ -135,8 +139,7 @@ public class GameManager : MonoBehaviour
 
     private void TriggerEvent()
     {
-        //int temp_randomNumber = Random.Range(0, 3);
-        int temp_randomNumber = 0;
+        int temp_randomNumber = Random.Range(0, 2);
         if (temp_randomNumber == 0)
         {
             Debug.Log("Darkness");
@@ -145,13 +148,7 @@ public class GameManager : MonoBehaviour
         else if (temp_randomNumber == 1)
         {
             Debug.Log("Gas Event");
-            // Spawn Gas Mask
-            // Gas Event
-        }
-        else if (temp_randomNumber == 2)
-        {
-            Debug.Log("Dark Event");
-            // Dark event
+            gasEventOn = true;
         }
     }
 
