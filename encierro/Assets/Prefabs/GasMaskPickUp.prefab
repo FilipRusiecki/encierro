@@ -102,8 +102,8 @@ MonoBehaviour:
   rb: {fileID: 5571497796569846382}
   scrollSpeed: 0
   _bounds: -8
-  _gameObject: {fileID: 0}
-  playersGasMask: {fileID: 0}
+  _gameObject: {fileID: 1843250851419499152}
+  playersGasMask: {fileID: 5076439135856312819, guid: ae7b8e212cf512e4aa50752d245f44d2, type: 3}
 --- !u!50 &5571497796569846382
 Rigidbody2D:
   serializedVersion: 4

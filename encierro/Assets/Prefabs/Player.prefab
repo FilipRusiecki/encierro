@@ -149,6 +149,7 @@ MonoBehaviour:
   gasMaskPickedUp: 0
   playerGasMask: {fileID: 2967484650123285269}
   inGas: 0
+  audio: {fileID: 0}
 --- !u!1 &2967484650123285269
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,11 +662,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5684572491707260485}
-  jumpForce: 0
+  jumpForce: 7
   jumpCount: 0
-  allowedJumps: 0
+  allowedJumps: 1
   isGrounded: 0
   gameManager: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!114 &4669043660164660014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,4 +707,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7755a72ee2f3344c9b2d10a4881c72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersGasMask: {fileID: 0}
+  playersGasMask: {fileID: 1843250851419499152, guid: 5d10995bd09d994459250c8d105d31a4, type: 3}

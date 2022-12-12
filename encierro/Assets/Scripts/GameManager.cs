@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
     private void TriggerEvent()
     {
         int temp_randomNumber = Random.Range(0, 2);
+        
         if (temp_randomNumber == 0)
         {
             Debug.Log("Darkness");
