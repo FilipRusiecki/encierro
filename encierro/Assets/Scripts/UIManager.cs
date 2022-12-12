@@ -20,6 +20,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("TestPatrick");
     }
 
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void Quitgame()
     {
         #if UNITY_STANDALONE

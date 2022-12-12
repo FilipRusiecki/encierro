@@ -37,7 +37,7 @@ public class torchPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
             playersTorch.transform.Find("Torch").gameObject.SetActive(true);
         }
 
