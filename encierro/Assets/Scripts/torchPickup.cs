@@ -6,7 +6,7 @@ public class torchPickup : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    public int speed;
+    public float speed;
     public int bounds;
 
     public GameObject playersTorch;
@@ -18,13 +18,18 @@ public class torchPickup : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
         if (transform.position.x < bounds)
         {
-            transform.position = new Vector3(13, transform.position.y, transform.position.z);
+            Destroy(this.gameObject);
         }
+    }
+
+    public void SetSpeed(float t_speed)
+    {
+        speed = t_speed;
     }
 
 
@@ -33,7 +38,7 @@ public class torchPickup : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
-            playersTorch.SetActive(true);
+            playersTorch.transform.Find("Torch").gameObject.SetActive(true);
         }
 
     }

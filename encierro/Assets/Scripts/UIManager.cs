@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
 
     public GameObject GameOverMenu;
+    public GameObject m_player;
+
 
     public void RestartLevel()
     {
@@ -47,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     public void EnableGameOvermenu()
     {
-        GameOverMenu.SetActive(true);
+            GameOverMenu.SetActive(true);
     }
 
 

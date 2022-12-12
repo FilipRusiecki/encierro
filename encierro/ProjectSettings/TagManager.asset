@@ -14,8 +14,11 @@ TagManager:
   - echoLocation
   - Bat
   - Battery Pickup
-  - GasField
   - ChasingEnemy
+  - Obstacle
+  - GameManager
+  - Undefined
+  - GasField
   layers:
   - Default
   - TransparentFX
@@ -28,7 +31,7 @@ TagManager:
   - Pickup
   - Obstacle
   - Bat
-  - 
+  - ChasingEnemy
   - 
   - 
   - 
@@ -68,6 +71,9 @@ TagManager:
   - name: gasmask
     uniqueID: 27046387
     locked: 0
-  - name: gasField
-    uniqueID: 3922804635
+  - name: Obstacles
+    uniqueID: 2278546147
+    locked: 0
+  - name: ChasingEnemy
+    uniqueID: 3497300953
     locked: 0

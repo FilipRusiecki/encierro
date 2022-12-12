@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1860313400891841159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860313400891841158}
+  m_Layer: 0
+  m_Name: 'pos1 '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860313400891841158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313400891841159}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.66, y: -0.12, z: -0.033887293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860313401472146225}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1860313401472146218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860313401472146225}
+  - component: {fileID: 1860313401472146222}
+  - component: {fileID: 1860313401472146223}
+  - component: {fileID: 1860313401472146221}
+  - component: {fileID: 1860313401472146224}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860313401472146225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313401472146218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.408752, y: -0.5067203, z: 0.013728562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1860313400891841158}
+  - {fileID: 1860313402170141636}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860313401472146222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313401472146218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4929d25dd36128e4f8ac10670bdf990c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goDarkNum: 0
+--- !u!114 &1860313401472146223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313401472146218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad4a29b3909884428fee49d4c746c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gasMask: {fileID: 1843250851419499152, guid: 3f8c308b1f85ac745bb29ec53ab8174d, type: 3}
+  amountOfGasMaskToSpawn: 5
+  amountOfGasMaskToSpawned: 0
+  timeBetweenSpawns: 3
+  spawnNow: 1
+  alive: 1
+  gasMaskSpawnPos: {fileID: 1860313400891841158}
+  gasMaskSpawnPos2: {fileID: 1860313402170141636}
+  randomPickSpawn: 0
+--- !u!114 &1860313401472146221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313401472146218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb54f9c3011ea7541a7c6ef5a95cfbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_score: {fileID: 0}
+  m_floor: {fileID: 93907520759812030, guid: bdbb01854698c1948b90d8316b788c7c, type: 3}
+  m_floorTwo: {fileID: 93907520759812030, guid: bdbb01854698c1948b90d8316b788c7c, type: 3}
+  m_backGround: {fileID: 7137928978543937837, guid: 4ff3718cf2414324dba2a881a72c05ed, type: 3}
+  m_backGroundTwo: {fileID: 7137928978543937837, guid: 4ff3718cf2414324dba2a881a72c05ed, type: 3}
+  m_lightOne: {fileID: 8187863536443297083, guid: d3f5d9f5a0fb0f54ea9a54b8f4a205f3, type: 3}
+  m_lightTwo: {fileID: 8187863536443297083, guid: d3f5d9f5a0fb0f54ea9a54b8f4a205f3, type: 3}
+  m_speedIncreaseText: {fileID: 0}
+  m_currentSpeed: 4
+  m_rateOfSpeedIncrease: 2
+  m_maxSpeed: 15
+--- !u!114 &1860313401472146224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313401472146218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a5b36d86902c54cbd3978b52ae2304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstaclePrefab: {fileID: 278165180036074142, guid: b640b2ab10aca5d4db2dd0f98e4c5c16, type: 3}
+  _batPrefab: {fileID: 1125496980033222871, guid: afd2cc7d01bb15a498b7d3876bc59e2b, type: 3}
+  _floorPrefab: {fileID: 93907520759812030, guid: bdbb01854698c1948b90d8316b788c7c, type: 3}
+  _wallPrefab: {fileID: 7137928978543937837, guid: 4ff3718cf2414324dba2a881a72c05ed, type: 3}
+  _lightPrefab: {fileID: 8187863536443297083, guid: d3f5d9f5a0fb0f54ea9a54b8f4a205f3, type: 3}
+  _noOfBats: 0
+--- !u!1 &1860313402170141637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860313402170141636}
+  m_Layer: 0
+  m_Name: pos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860313402170141636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860313402170141637}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.02, y: -1.73, z: -0.033887293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860313401472146225}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

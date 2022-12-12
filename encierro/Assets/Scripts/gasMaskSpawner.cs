@@ -86,7 +86,7 @@ public class gasMaskSpawner : MonoBehaviour
     {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
         //first event
-        if (timer == 5)
+        if (timer % 40 == 0)
         {
             if (randomEventCall == 0)
             {
@@ -115,70 +115,64 @@ public class gasMaskSpawner : MonoBehaviour
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
         //second event
-        if (timer == 10)
-        {
-            if (randomEventCall == 0)
-            {
-                Debug.Log("event 1");
-                if (amountOfGasMaskToSpawn > amountOfGasMaskToSpawned && spawnNow == true)
-                {
-                    spawnNow = false;
-                    StartCoroutine(spawnMasks());
-                    StartCoroutine(spawnGasField());
+        //if (timer % 30 == 0)
+        //{
+        //    if (randomEventCall == 0)
+        //    {
+        //        Debug.Log("event 1");
+        //        if (amountOfGasMaskToSpawn > amountOfGasMaskToSpawned && spawnNow == true)
+        //        {
+        //            spawnNow = false;
+        //            StartCoroutine(spawnMasks());
+        //            StartCoroutine(spawnGasField());
 
-                }
-            }
+        //        }
+        //    }
 
-            if (randomEventCall == 1)
-            {
-                Debug.Log("event 2");
+        //    if (randomEventCall == 1)
+        //    {
+        //        Debug.Log("event 2");
 
-                darkEventOn = true;
+        //        darkEventOn = true;
                
-            }
+        //    }
 
-            if (randomEventCall == 2)
-            {
-                Debug.Log("event 3");
-            }
-        }
+        //    if (randomEventCall == 2)
+        //    {
+        //        Debug.Log("event 3");
+        //    }
+        //}
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //third event
-        if (timer == 15)
-        {
-            if (randomEventCall == 0)
-            {
-                Debug.Log("event 1");
-                if (amountOfGasMaskToSpawn > amountOfGasMaskToSpawned && spawnNow == true)
-                {
-                    spawnNow = false;
-                    StartCoroutine(spawnMasks());
-                    StartCoroutine(spawnGasField());
+        ////third event
+        //if (timer % 30 == 0)
+        //{
+        //    if (randomEventCall == 0)
+        //    {
+        //        Debug.Log("event 1");
+        //        if (amountOfGasMaskToSpawn > amountOfGasMaskToSpawned && spawnNow == true)
+        //        {
+        //            spawnNow = false;
+        //            StartCoroutine(spawnMasks());
+        //            StartCoroutine(spawnGasField());
 
-                }
-            }
+        //        }
+        //    }
 
-            if (randomEventCall == 1)
-            {
-                Debug.Log("event 2");
+        //    if (randomEventCall == 1)
+        //    {
+        //        Debug.Log("event 2");
 
-                darkEventOn = true;
+        //        darkEventOn = true;
                
-            }
+        //    }
 
-            if (randomEventCall == 2)
-            {
-                Debug.Log("event 3");
-            }
-        }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //    if (randomEventCall == 2)
+        //    {
+        //        Debug.Log("event 3");
+        //    }
+        //}
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
-
-
-
-
-
-
     IEnumerator spawnMasks()
     {
         yield return new WaitForSeconds(timeBetweenSpawns);
@@ -244,7 +238,7 @@ public class gasMaskSpawner : MonoBehaviour
             darkEventOn = false;
         }
         turnOfLightsOnce = false;
-        enable.torchPickedUp = false;
+        //enable.torchPickedUp = false;
         Debug.Log(" end call event 2 in courtine ");
 
     }

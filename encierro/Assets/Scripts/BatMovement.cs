@@ -10,7 +10,7 @@ public enum direction
 public class BatMovement : MonoBehaviour
 {
 
-    public int speed;
+    public float speed;
     public int bounds;
 
     private float startPosX ;
@@ -28,19 +28,25 @@ public class BatMovement : MonoBehaviour
     private float timer;
     bool hitPlayerMaybe = false;
 
+
     private void Start()
     {
-        if (enumCounter == direction.right)
+        int random = Random.Range(0,2);
+        if (random == 0)
         {
-            startPosX = 4;
-            transform.position = new Vector3(startPosX, startPosY, transform.position.z);
+            Debug.Log(0);
+            enumCounter = direction.right;
+            //startPosX = 4;
+            transform.position = new Vector3(Random.Range(3, 5), startPosY, transform.position.z);
            
         }
-        if(enumCounter == direction.left)
+        if(random == 1)
         {
-            startPosX = -3;
-            transform.position = new Vector3(startPosX, startPosY, transform.position.z);
-            
+            Debug.Log(1);
+            enumCounter = direction.right;
+            // enumCounter = direction.left;
+            //startPosX = -3;
+            transform.position = new Vector3(Random.Range(-2, 2), startPosY, transform.position.z);
         }
         centre = transform.position;
 
@@ -96,7 +102,7 @@ public class BatMovement : MonoBehaviour
      
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
        
         if (hitPlayerMaybe == false)

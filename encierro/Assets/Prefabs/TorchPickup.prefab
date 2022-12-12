@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f8c2cd2d5de944c8b549a111f3c178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   bounds: -7
   playersTorch: {fileID: 0}
 --- !u!1 &6055313605295099645

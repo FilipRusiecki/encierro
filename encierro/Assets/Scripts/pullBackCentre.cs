@@ -5,9 +5,8 @@ using UnityEngine;
 public class pullBackCentre : MonoBehaviour
 {
     private int speed = 2;
-    private void FixedUpdate()
+    private void Update()
     {
-       
             transform.position += -Vector3.left * speed * Time.deltaTime;
     }
 }
