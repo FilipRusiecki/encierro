@@ -32,6 +32,11 @@ public class torchBattery : MonoBehaviour
         }
     }
 
+    public void resetTimePassed()
+    {
+        timePassed = 0;
+    }
+
     private IEnumerator flicker()
     {
         torchLight.SetActive(false);

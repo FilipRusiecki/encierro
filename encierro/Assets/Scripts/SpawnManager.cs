@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject _torchPrefab;
     [SerializeField]
+    GameObject _batteryPrefab;
+    [SerializeField]
     GameObject _gasMaskPrefab;
     [SerializeField]
     GameObject _gasFieldPrefab;
@@ -33,23 +35,24 @@ public class SpawnManager : MonoBehaviour
     private GameObject _torch;
     private GameObject _gasMask;
     private GameObject _gasField;
+    private GameObject _battery;
 
 
     public int _noOfBats = 0;
-    public float _spawnTime = 3.0f;
+    public float _spawnTime = 4.0f;
     bool m_canDecreaseSpawnTime = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _spawnTime = 3.0f;
+        _spawnTime = 4.0f;
         StartCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<GameManager>().GetScore() % 50 == 0 && GetComponent<GameManager>().GetScore() != 0)
+        if (GetComponent<GameManager>().GetScore() % 100 == 0 && GetComponent<GameManager>().GetScore() != 0)
         {
             if (_spawnTime > 0.5f && m_canDecreaseSpawnTime)
             {
@@ -73,13 +76,20 @@ public class SpawnManager : MonoBehaviour
         {
             _torch.GetComponent<torchPickup>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         }
+        if (_battery != null)
+        {
+            _battery.GetComponent<batteriesPickup>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
+        }
         if (_obstacle != null)
         {
             _obstacle.GetComponent<Obstacle>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
         }
         if (_bat != null)
         {
-            _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+            if (GetComponent<GameManager>().m_currentSpeed >= 8)
+            {
+                _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed + 4) ;
+            }
         }
     }
 
@@ -96,6 +106,19 @@ public class SpawnManager : MonoBehaviour
         {
             _torch = Instantiate(_torchPrefab, _spawnPoints[1].transform.position, _spawnPoints[1].transform.rotation);
             _torch.GetComponent<torchPickup>().playersTorch = _player.gameObject;
+        }
+    }
+
+    public void spawnInBatteries()
+    {
+        int randomPickSpawn = Random.Range(0, 2);
+        if (randomPickSpawn == 0)
+        {
+            _battery = Instantiate(_batteryPrefab, _spawnPoints[0].transform.position, _spawnPoints[0].transform.rotation);
+        }
+        else if (randomPickSpawn == 1)
+        {
+            _battery = Instantiate(_batteryPrefab, _spawnPoints[1].transform.position, _spawnPoints[1].transform.rotation);
         }
     }
 
@@ -168,7 +191,7 @@ public class SpawnManager : MonoBehaviour
         Vector3 _spawnPosition = new Vector3(Random.Range(10.0f, 16.0f), -3.5f, 0.0f);
         _obstacle = Instantiate(_obstaclePrefab, _spawnPosition, Quaternion.identity);
         _obstacle.GetComponent<Obstacle>().SetSpeed(GetComponent<GameManager>().m_currentSpeed);
-        if (_spawnTime <= 2.0f)
+        if (_spawnTime <= 2.25f)
         {
             _spawnPosition = new Vector3(Random.Range(10.0f, 16.0f), -3.5f, 0.0f);
             _obstacle = Instantiate(_obstaclePrefab);
@@ -180,17 +203,17 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 _spawnPosition = new Vector3(Random.Range(10.0f, 12.0f), -3.5f, 0.0f);
         _bat = Instantiate(_batPrefab);
-        if (GetComponent<GameManager>().m_currentSpeed >= 4)
+        if (GetComponent<GameManager>().m_currentSpeed >= 8)
         {
-            _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+            _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed+4);
         }
-        if (_spawnTime <= 1.0f)
+        if (_spawnTime <= 2.75f)
         {
             _spawnPosition = new Vector3(Random.Range(10.0f, 16.0f), -3.5f, 0.0f);
             _bat = Instantiate(_batPrefab);
-            if (GetComponent<GameManager>().m_currentSpeed >= 4)
+            if (GetComponent<GameManager>().m_currentSpeed >= 8)
             {
-                _bat.GetComponent<BatMovement>().speed = GetComponent<GameManager>().m_currentSpeed;
+                _bat.GetComponent<BatMovement>().speed = (GetComponent<GameManager>().m_currentSpeed + 4);
             }
         }
     }

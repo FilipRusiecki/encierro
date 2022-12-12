@@ -20,16 +20,6 @@ public class Collision : MonoBehaviour
             Debug.Log("Entered gas Field");
             playersGasMask.GetComponent<GasMaskPickup>().setInGas();
         }
-        //if (collision.gameObject.CompareTag("GasField"))
-        //{
-        //    Debug.Log("in gas field");
-        //}
-        //    if (collision.gameObject.CompareTag("GasField") && playersGasMask.GetComponent<GasMaskPickup>().gasMaskPickedUp == false)
-        //{
-        //    Destroy(this.gameObject);
-        //    OnPlayerDeath?.Invoke();
-        //    Debug.Log("collided with chasing Enemy");
-        //}
     }
 
 

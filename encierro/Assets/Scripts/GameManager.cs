@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private int scoreIncrement = 1;
     public float m_currentSpeed = 4f;
-    public float m_rateOfSpeedIncrease = 2.0f;
+    public float m_rateOfSpeedIncrease = 1.25f;
     public float m_maxSpeed = 15.0f;
     bool m_canIncreaseSpeed;
 
@@ -88,8 +88,12 @@ public class GameManager : MonoBehaviour
         {
             lights[i].SetActive(false);
         }
-        roomLight.color = new Color(0f,0f,0f,255f);
-        yield return new WaitForSeconds(3.0f);
+        roomLight.color = new Color(0f, 0f, 0f, 255f);
+        yield return new WaitForSeconds(5.0f);
+
+        GetComponent<SpawnManager>().spawnInBatteries();
+
+        yield return new WaitForSeconds(5.0f);
 
 
         for (int i = 0; i < lights.Length; i++)
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         GetComponent<SpawnManager>().spawnInGasField();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         gasEventOn = false;
         _maskSpawned = false;
         _gasFieldSpawned = false;
@@ -118,7 +122,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         m_canIncreaseSpeed = true;
         m_score.GetComponent<Score>().SetScore(scoreIncrement);
-        if (m_score.GetComponent<Score>().GetScore() % 50 == 0 && m_score.GetComponent<Score>().GetScore() != 0)
+        if (m_score.GetComponent<Score>().GetScore() % 150 == 0 && m_score.GetComponent<Score>().GetScore() != 0)
         {
             TriggerEvent();
         }

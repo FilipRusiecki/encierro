@@ -5,7 +5,7 @@ using UnityEngine;
 public class batteriesPickup : MonoBehaviour
 {
     Rigidbody2D rb;
-    public int speed;
+    public float speed;
     public int bounds;
 
     public GameObject playersTorch;
@@ -13,16 +13,17 @@ public class batteriesPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playersTorch = GameObject.FindWithTag("Player").gameObject;
+        playersTorch = playersTorch.transform.Find("Torch").gameObject;
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
         if (transform.position.x < bounds)
         {
-            transform.position = new Vector3(13, transform.position.y, transform.position.z);
+            Destroy(this.gameObject);
         }
     }
 
@@ -31,9 +32,13 @@ public class batteriesPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
-            playersTorch.GetComponent<torchBattery>().timePassed = 0;                
+            playersTorch.GetComponent<torchBattery>().resetTimePassed();
+            Destroy(this.gameObject);
         }
+    }
 
+    public void SetSpeed(float t_speed)
+    {
+        speed = t_speed;
     }
 }
