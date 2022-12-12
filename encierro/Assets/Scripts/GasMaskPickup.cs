@@ -12,7 +12,7 @@ public class GasMaskPickup : MonoBehaviour
     public bool gasMaskPickedUp = false;
     public GameObject playerGasMask;
     public bool inGas = false;
-
+    public AudioSource audio;
     //public bool torchPickedUp = false;
     // public GameObject torchObject;
     private void Start()
@@ -31,9 +31,20 @@ public class GasMaskPickup : MonoBehaviour
             //gasBar.gameObject.SetActive(true);
             //bar.SetActive(true);
             //gasMaskPickedUp = true;
-       
-            //Destroy(collision.gameObject);
 
+            //Destroy(collision.gameObject);
+            audio.Play();
+
+        }
+
+        if (collision.CompareTag("TorchPickup"))
+        {
+            audio.Play();
+        }
+
+        if (collision.CompareTag("Battery Pickup"))
+        {
+            audio.Play();
         }
 
         if (collision.CompareTag("GasField"))
