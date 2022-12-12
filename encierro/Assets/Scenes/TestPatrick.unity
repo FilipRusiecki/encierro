@@ -301,7 +301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &227496112
 PrefabInstance:
@@ -587,7 +587,7 @@ RectTransform:
   m_Children:
   - {fileID: 1906135781}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -603,7 +603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 824856601867293979, guid: 6c11982f57077074490fda06ea8ec240, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 824856601867293979, guid: 6c11982f57077074490fda06ea8ec240, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1354,6 +1354,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1860313401472146221, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
+      propertyPath: m_rateOfSpeedIncrease
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860313401472146221, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: Transforms.Array.data[0]
       value: 
       objectReference: {fileID: 955718569}
@@ -1403,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 1125496980033222871, guid: afd2cc7d01bb15a498b7d3876bc59e2b, type: 3}
     - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: _spawnTime
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: _floorPrefab
@@ -1413,6 +1417,10 @@ PrefabInstance:
       propertyPath: _torchPrefab
       value: 
       objectReference: {fileID: 6055313605272098051, guid: eabb0949f990b5744a636a23a4001408, type: 3}
+    - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
+      propertyPath: _batteryPrefab
+      value: 
+      objectReference: {fileID: 4916716504884972854, guid: 738ff863dfd76d54594e2bcf1a4f1398, type: 3}
     - target: {fileID: 1860313401472146224, guid: b6fc5de8a1c71a944be1f727126bef50, type: 3}
       propertyPath: _gasMaskPrefab
       value: 
@@ -1597,7 +1605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130822547282919478, guid: cc614fc6c4e8b004d9726ab982d322a4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 130822547282919478, guid: cc614fc6c4e8b004d9726ab982d322a4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1781,6 +1789,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 382030332622240639, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200442824955777, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: initialBatteryPercent
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200442824955779, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4297200442842332720, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: bar
       value: 
@@ -1796,6 +1816,14 @@ PrefabInstance:
     - target: {fileID: 4297200443654422256, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_Name
       value: pl
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200443654422257, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297200443654422267, guid: d135995d17514c7468301113c56a1568, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4297200443654422269, guid: d135995d17514c7468301113c56a1568, type: 3}
       propertyPath: m_RootOrder

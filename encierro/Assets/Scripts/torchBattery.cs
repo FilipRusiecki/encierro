@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class torchBattery : MonoBehaviour
 {
-    public int initialBatteryPercent = 1000;
+    public int initialBatteryPercent = 400;
     public int timePassed = 0;
     public GameObject torchLight;
 
@@ -30,6 +30,11 @@ public class torchBattery : MonoBehaviour
         {
             torchLight.SetActive(true);
         }
+    }
+
+    public void resetTimePassed()
+    {
+        timePassed = 0;
     }
 
     private IEnumerator flicker()
